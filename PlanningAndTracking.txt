@@ -1,0 +1,10 @@
+HERE WE WILL PLAN and DELEGATE!
+also we will right when things are down.
+
+Base Code File [ X ] by Katie
+
+DSString files [  ] By...
+
+SentimentalClassifer files [   ] By...
+
+Main [  ] By...
