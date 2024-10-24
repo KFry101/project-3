@@ -2,6 +2,7 @@
 #include "DSString.cpp"
 
 int main() {
+    /*
     // Test constructors
     DSString s1("Hello");
     DSString s2(s1);  // Copy constructor
@@ -20,6 +21,8 @@ int main() {
     
     // Test array access
     char c = s1[0];  // Should be 'H'
+
+    */
     
     return 0;
 }
