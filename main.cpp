@@ -1,5 +1,5 @@
 #include <iostream>
-#include "DSString.h"
+#include "DSString.cpp"
 
 int main() {
     // Test constructors
