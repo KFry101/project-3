@@ -1,5 +1,5 @@
 // DSString.h
-
+#ifndef DSSTRING_H
 #define DSSTRING_H
 
 class DSString {
@@ -41,3 +41,4 @@ public:
     char& operator[](int index);
     const char& operator[](int index) const;
 };
+#endif 
