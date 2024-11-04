@@ -131,7 +131,16 @@ void SentimentClassifier::evaluatePredictions(const char* truthFile, const char*
         std::string sentiment, id;
         std::getline(ss, sentiment, ',');
         std::getline(ss, id);
-        truth[DSString(id.c_str())] = std::stoi(sentiment);
+        
+        int sentimentValue;
+        try {
+            sentimentValue = std::stoi(sentiment);
+        } catch (const std::invalid_argument&) {
+            // If sentiment is not an integer, assume it's "0" for negative, "4" for positive
+            sentimentValue = (sentiment == "0" || sentiment == "negative") ? 0 : 4;
+        }
+        
+        truth[DSString(id.c_str())] = sentimentValue;
     }
     
     // Write predictions to results file

@@ -1,0 +1,58 @@
+HERE WE WILL PLAN and DELEGATE!
+also we will right when things are down.
+
+Base Code File [ X ] 
+
+DSString files [ X ] 
+
+SentimentalClassifer files [ X ]
+
+Main [X] 
+
+
+U M L DIAGRAM
+
+Project 3
+        class DSString {
+            -char* str
+            -int length
+            +DSString()
+            +DSString(const char*)
+            +DSString(const DSString&)
+            +~DSString()
+            +operator=(const DSString&)
+            +operator+(const DSString&)
+            +operator==(const DSString&)
+            +substring(int, int)
+            +getLength() int
+            +c_str() char*
+        }
+        (within DSString.h/.cpp)
+                                                                                
+                                                                              
+        class SentimentClassifier {                                                     
+            -map<DSString, WordSentiment> wordStats;
+            -vector<std::pair<DSString, int>> predictions;
+            +train(string trainingFile)
+            +predict(string testFile)
+            +evaluatePredictions(string truthFile)
+            -tokenizeTweet(DSString tweet)
+            -processTweet(const DSString& tweet, const DSString& id, bool isPositive);
+            -classifyTweet(const DSString& tweet);
+            -cleanTweet(const DSString& tweet);
+        }
+        (within SentimentalClassifer.h/.cpp)
+
+
+            class WordSentiment {
+                -DSString word
+                -int positiveCount
+                -int negativeCount
+                +updateCount(int sentiment)
+                +getSentimentScore()
+            }
+            (within SentimentalClassifer.h only)
+
+        SentimentClassifier --> DSString : uses
+        SentimentClassifier --> WordSentiment : contains
+        WordSentiment --> DSString : contains
