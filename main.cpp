@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
+#include <chrono>
 
 // Function to check if a file exists
 bool fileExists(const char* filename) {
@@ -63,6 +64,9 @@ void printResults(const char* resultsFile, const char* accuracyFile) {
 
 int main(int argc, char* argv[]) {
     try {
+        // Get the start time
+        auto start = std::chrono::high_resolution_clock::now();
+        
         // Check command line arguments
         if (argc != 6) {
             std::cerr << "Error: Incorrect number of arguments\n\n";
@@ -99,6 +103,13 @@ int main(int argc, char* argv[]) {
         // Evaluate and write results
         std::cout << "Evaluating predictions and writing results...\n";
         classifier.evaluatePredictions(argv[3], argv[4], argv[5]);
+
+        // Get the end time
+        auto end = std::chrono::high_resolution_clock::now();
+        
+        // Calculate the execution time
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+        std::cout << "Execution time: " << duration << " milliseconds" << std::endl;
 
         // Print results summary
         printResults(argv[4], argv[5]);

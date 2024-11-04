@@ -19,7 +19,7 @@ public:
         if (isPositive) positiveCount++;
         else negativeCount++;
     }
-    
+     
     double getSentimentScore() const {
         int total = positiveCount + negativeCount;
         if (total == 0) return 0.0;
